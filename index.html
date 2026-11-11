@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu punto · Abriguemos a un Niño</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Lato:wght@400;700;900&family=Lobster+Two&family=Noto+Sans+Display:wdth,wght@62.5..100,100..900&display=swap">
+<style>
+:root{--cacao:#673831;--rosa:#D45773;--rosa-suave:#E8A4AB;--crema:#F6E9D8;--marfil:#FFF8EE;--salvia:#91A48F;--azul:#8EA8BD;--tinta:#2f2a30;--gris:#806364;--linea:#EBD6D0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--marfil);color:var(--tinta);font-family:Lato,system-ui,sans-serif;font-size:17px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--cacao)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.display{font-family:'Noto Sans Display',sans-serif;font-stretch:62.5%;font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.005em;color:var(--cacao)}
+.cond{font-family:'Noto Sans Display',sans-serif;font-stretch:75%;font-weight:800;letter-spacing:.02em}
+.script{font-family:'Lobster Two',cursive}
+.round{font-family:Comfortaa,sans-serif;font-weight:700}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rosa)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 26px;font-family:'Noto Sans Display',sans-serif;font-stretch:75%;font-weight:800;font-size:18px;letter-spacing:.03em;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(103,56,49,.18)}
+.btn-rosa{background:var(--rosa);color:#fff}.btn-cacao{background:var(--cacao);color:#fff}.btn-linea{background:transparent;color:var(--cacao);box-shadow:inset 0 0 0 2px var(--cacao)}
+section{padding:84px 0}
+h2{margin:8px 0 14px;font-family:Comfortaa,sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:1.2;color:var(--cacao)}
+.lead{font-size:19px;max-width:680px;color:var(--tinta)}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(255,248,238,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--linea)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.nav .logo{height:34px;width:auto}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-weight:700;font-size:15px}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{color:var(--rosa)}
+@media(max-width:900px){.nav ul{display:none}}
+/* hero */
+.hero{padding:56px 0 72px;background:var(--crema)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(54px,8vw,96px);margin:10px 0 0}
+.hero h1 span{color:var(--rosa)}
+.hero .script{font-size:34px;color:var(--cacao);margin:14px 0 18px}
+.punto{background:#fff;border-radius:24px;padding:26px;box-shadow:0 18px 40px rgba(103,56,49,.12)}
+.punto-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--crema);color:var(--cacao);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700}
+.chip.ok{background:#e5f0e3;color:#3f5b3c}
+.punto h3{margin:14px 0 4px;font-family:'Noto Sans Display',sans-serif;font-stretch:62.5%;font-weight:900;font-size:44px;line-height:1;color:var(--cacao);text-transform:uppercase}
+.timeline{list-style:none;margin:18px 0 0;padding:0;border-left:3px solid var(--rosa-suave)}
+.timeline li{position:relative;padding:0 0 14px 20px;font-size:15.5px}
+.timeline li:before{content:"";position:absolute;left:-9px;top:5px;width:15px;height:15px;border-radius:4px;background:var(--rosa)}
+.timeline li.pend:before{background:var(--linea)}
+.timeline b{color:var(--cacao)}
+.timeline small{display:block;color:var(--gris);font-size:13.5px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:-36px;position:relative;z-index:2}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{background:#fff;border-radius:18px;padding:18px 20px;box-shadow:0 10px 24px rgba(103,56,49,.08)}
+.stat .n{font-family:'Noto Sans Display',sans-serif;font-stretch:62.5%;font-weight:900;font-size:46px;line-height:1;color:var(--rosa)}
+.stat .t{font-size:14.5px;color:var(--cacao);font-weight:700;margin-top:4px}
+/* heart */
+.corazon-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:center}
+@media(max-width:900px){.corazon-grid{grid-template-columns:1fr}}
+.heart{position:relative;width:100%;aspect-ratio:45/38}
+.heart .c{position:absolute;border:0;padding:0;margin:0;min-width:0;border-radius:2px;background:var(--linea);cursor:pointer;transition:transform .15s}
+.heart .c.on{background-image:var(--img);background-size:var(--bs);background-position:var(--bp)}
+.heart .c:hover{transform:scale(2.6);z-index:5;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.heart .c.mine{outline:3px solid var(--cacao);outline-offset:1px;z-index:4;animation:latido 1.4s ease-in-out infinite}
+@keyframes latido{50%{transform:scale(1.8)}}
+.leyenda{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:14px;color:var(--cacao);margin-top:16px}
+.leyenda i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.barra{height:14px;border-radius:999px;background:var(--linea);overflow:hidden;margin:10px 0 6px}
+.barra div{height:100%;background:var(--rosa);border-radius:999px}
+/* historia */
+.historia{background:#fff}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.foto{border-radius:24px;overflow:hidden;aspect-ratio:4/3;background-size:cover;background-position:center}
+.hitos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+@media(max-width:700px){.hitos{grid-template-columns:1fr}}
+.hito{background:var(--marfil);border-radius:16px;padding:16px}
+.hito .n{font-family:'Noto Sans Display',sans-serif;font-stretch:62.5%;font-weight:900;font-size:34px;color:var(--rosa);line-height:1}
+.hito .t{font-size:14.5px;color:var(--cacao);margin-top:4px}
+/* proceso */
+.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:28px}
+@media(max-width:900px){.pasos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.pasos{grid-template-columns:1fr}}
+.paso{background:#fff;border-radius:18px;padding:22px;border:1px solid var(--linea)}
+.paso .num{font-family:'Noto Sans Display',sans-serif;font-stretch:75%;font-weight:800;color:var(--rosa);font-size:15px;letter-spacing:.08em}
+.paso h4{margin:6px 0 6px;font-family:Comfortaa,sans-serif;font-size:20px;color:var(--cacao)}
+.paso p{margin:0;font-size:15.5px}
+/* tren */
+.tren{background:var(--cacao);color:var(--marfil)}
+.tren h2,.tren .lead{color:var(--marfil)}
+.tren .kicker{color:var(--rosa-suave)}
+.ruta{position:relative;margin:34px 0 10px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media(max-width:800px){.ruta{grid-template-columns:1fr}}
+.ruta:before{content:"";position:absolute;left:4%;right:4%;top:15px;height:4px;background:var(--rosa-suave);border-radius:2px}
+@media(max-width:800px){.ruta:before{display:none}}
+.est{position:relative;padding-top:42px}
+.est:before{content:"";position:absolute;top:4px;left:0;width:26px;height:26px;border-radius:50%;background:var(--marfil);border:6px solid var(--rosa)}
+.est b{display:block;font-family:Comfortaa,sans-serif;font-size:18px}
+.est span{font-size:14.5px;color:var(--crema)}
+.prov{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:30px}
+@media(max-width:800px){.prov{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pv{background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.18);border-radius:16px;padding:14px 16px}
+.pv b{font-family:Comfortaa,sans-serif;font-size:17px}
+.pv .barra{background:rgba(255,248,238,.18);height:8px;margin:8px 0 4px}
+.pv small{color:var(--crema);font-size:13.5px}
+/* padrinos */
+.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+@media(max-width:900px){.cards3{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:20px;padding:24px;border:1px solid var(--linea)}
+.card h4{margin:0 0 8px;font-family:Comfortaa,sans-serif;font-size:20px;color:var(--cacao)}
+.card ul{margin:0;padding-left:18px;font-size:15.5px}
+/* sumate */
+.sumate{background:var(--crema)}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 22px}
+.tab{border:0;border-radius:999px;padding:12px 20px;background:#fff;color:var(--cacao);font-family:'Noto Sans Display',sans-serif;font-stretch:75%;font-weight:800;font-size:17px;letter-spacing:.03em;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--cacao);color:#fff}
+.panel{display:none;background:#fff;border-radius:24px;padding:30px}
+.panel.on{display:block}
+.planes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+@media(max-width:800px){.planes{grid-template-columns:1fr}}
+.plan{border:2px solid var(--linea);border-radius:18px;padding:20px;cursor:pointer;position:relative;background:#fff;text-align:left;font:inherit;color:inherit}
+.plan[aria-pressed="true"]{border-color:var(--rosa);background:#fff6f7}
+.plan .cond{font-size:22px;color:var(--cacao)}
+.plan .eq{font-size:14.5px;color:var(--gris)}
+.plan .tag{position:absolute;top:-11px;right:14px;background:var(--rosa);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:700px){form{grid-template-columns:1fr}}
+.full .btn{display:inline-block;text-align:center;line-height:1.25}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700;color:var(--cacao)}
+input,select,textarea{font:inherit;font-weight:400;font-size:16px;border:1.5px solid var(--linea);border-radius:12px;padding:12px 14px;background:var(--marfil);color:var(--tinta)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--rosa);border-color:transparent}
+.full{grid-column:1/-1}
+.nota{font-size:14px;color:var(--gris)}
+.drop{border:2px dashed var(--rosa-suave);border-radius:18px;padding:24px;text-align:center;background:var(--marfil);cursor:pointer}
+.drop img{max-height:220px;margin:12px auto 0;border-radius:12px}
+/* galeria */
+.galeria{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
+@media(max-width:800px){.galeria{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.gal{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--linea)}
+.gal .im{aspect-ratio:1;background-size:cover;background-position:center}
+.gal .tx{padding:10px 12px;font-size:13.5px}
+.gal .tx b{display:block;color:var(--cacao);font-size:14px}
+/* registro modal */
+dialog{border:0;border-radius:24px;padding:0;max-width:520px;width:calc(100% - 32px);box-shadow:0 30px 80px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(47,42,48,.55)}
+.dlg{padding:28px}
+.dlg h3{margin:0 0 6px;font-family:Comfortaa,sans-serif;color:var(--cacao);font-size:24px}
+.x{position:absolute;right:14px;top:12px;border:0;background:none;font-size:28px;color:var(--cacao);cursor:pointer;line-height:1}
+.lb{display:grid;grid-template-columns:minmax(0,1fr)}
+.lb .im{aspect-ratio:4/3;background-size:cover;background-position:center}
+/* toast */
+.toast{visibility:hidden;opacity:0;position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(120px);background:var(--cacao);color:#fff;border-radius:999px;padding:14px 24px;font-weight:700;transition:transform .3s;z-index:50;max-width:calc(100% - 32px)}
+.toast.on{visibility:visible;opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:600px){.nav .btn{padding:10px 14px;font-size:15px}.nav .btn .largo{display:none}}
+.nav .btn .corto{display:none}@media(max-width:600px){.nav .btn .corto{display:inline}}
+footer{background:var(--cacao);color:var(--crema);padding:48px 0;font-size:15px}
+footer .grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:28px}
+@media(max-width:800px){footer .grid{grid-template-columns:1fr}}
+footer a{color:var(--marfil)}
+footer .script{font-size:30px;color:var(--marfil)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" aria-label="Inicio"><img class="logo" src="fotos/logo.svg" alt="Abriguemos a un Niño"></a>
+    <ul>
+      <li><a href="#corazon">El corazón</a></li>
+      <li><a href="#historia">Nuestra historia</a></li>
+      <li><a href="#tejeton">Gran Tejetón</a></li>
+      <li><a href="#tren">El tren</a></li>
+      <li><a href="#puntos">Tus puntos</a></li>
+      <li><a href="#padrinos">Padrinos</a></li>
+      <li><a href="#sumate">Sumate</a></li>
+    </ul>
+    <button class="btn btn-rosa" type="button" data-open-registro><span class="largo">Registrar un código</span><span class="corto">Mi código</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Tejetón 2027 · Abriguemos a un Niño</div>
+      <h1 class="display">Tu punto <span>ya está en marcha</span></h1>
+      <p class="script">Cada punto abriga.</p>
+      <p class="lead">Gracias por sumarte. Acá vas a poder seguir el recorrido de la manta que ayudás a hacer, conocer a las tejedoras y ver cómo se completa el corazón de las 1.000 mantas.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+        <a class="btn btn-cacao" href="#corazon">Ver el corazón</a>
+        <a class="btn btn-linea" href="#sumate">Quiero seguir ayudando</a>
+      </div>
+    </div>
+    <article class="punto" aria-live="polite">
+      <div class="punto-top">
+        <span class="chip" id="p-origen">Ticket YPF · Cargá y abrigá</span>
+        <span class="chip ok" id="p-estado">En camino</span>
+      </div>
+      <h3 id="p-titulo">Tu aporte para lana</h3>
+      <div style="font-size:15px;color:var(--gris)">Código <b id="p-codigo" style="color:var(--cacao)">YPF-4821</b></div>
+      <ul class="timeline" id="p-linea">
+        <li><b>Cargaste en YPF</b><small>YPF dona el 1 % de tu carga para lana</small></li>
+        <li><b>Tu aporte compra lana para las tejedoras</b><small>Hasta el 14 de mayo</small></li>
+        <li class="pend"><b>Esa lana se convierte en cuadrados y mantas</b><small>Sábado 15 de mayo · Gran Tejetón, Monumento de los Españoles</small></li>
+        <li class="pend"><b>Las mantas viajan en el Tren de las Mil Mantas</b><small>Desde el 17 de mayo · de Retiro al norte</small></li>
+        <li class="pend"><b>Llegan a 40 escuelas albergue</b><small>Antes de junio · te avisamos por mail</small></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:12px;background:var(--crema);border-radius:14px;padding:12px 14px;margin:6px 0 12px"><div class="cond" style="font-size:30px;color:var(--rosa);line-height:1" id="p-puntos">1</div><div style="font-size:14px;color:var(--cacao)"><b>punto en tu libreta</b><br><span id="p-falta">Te faltan 2 para el cupón de lana</span></div></div>
+      <button class="btn btn-rosa" type="button" style="width:100%" data-open-registro>Registrar otro código</button>
+    </article>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="n" data-count="1000">0</div><div class="t">mantas para entregar</div></div>
+    <div class="stat"><div class="n" data-count="54000">0</div><div class="t">cuadrados para tejer</div></div>
+    <div class="stat"><div class="n" data-count="40">0</div><div class="t">escuelas albergue</div></div>
+    <div class="stat"><div class="n" data-count="6">0</div><div class="t">provincias</div></div>
+  </div>
+</div>
+
+<section id="codigo">
+  <div class="wrap">
+    <div class="kicker">Tu código</div>
+    <h2>Cada forma de sumarte trae su código</h2>
+    <p class="lead">Escaneá el QR o escribí el código en «Registrar un código». Si dejás tu mail, te avisamos cuando tu aporte forme parte de una manta, cuando salga el tren y cuando las mantas lleguen.</p>
+    <div class="pasos">
+      <div class="paso"><div class="num">CUADRADO</div><h4>Entregás un cuadrado</h4><p>En el punto de acopio le ponemos una etiqueta con número y vos te llevás el talón. Cuando se cose la manta, tu cuadrado queda unido a ella.</p></div>
+      <div class="paso"><div class="num">OVILLO</div><h4>Donás un ovillo</h4><p>Junto a la urna, en estaciones YPF y comercios, hay tarjetas con código. Dejás tu ovillo y te llevás una.</p></div>
+      <div class="paso"><div class="num">CARGÁ Y ABRIGÁ</div><h4>Cargás en YPF</h4><p>YPF dona el 1 % de tu carga para lana y vos podés sumar el redondeo. El ticket sale con tu código.</p></div>
+      <div class="paso"><div class="num">VIAJÁ Y ABRIGÁ</div><h4>Viajás en tren</h4><p>Trenes Argentinos dona el 0,5 % de cada pasaje de larga distancia. Tu pasaje trae el código.</p></div>
+      <div class="paso"><div class="num">TEJER Y APADRINAR</div><h4>Te anotás en la web</h4><p>Si te sumás a tejer o apadrinás una escuela, te llega tu código por mail.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="puntos" style="background:#fff">
+  <div class="wrap">
+    <div class="kicker">Tu punto cuenta</div>
+    <h2>Cada código suma un punto en tu libreta</h2>
+    <p class="lead">Registrá todos tus códigos: los puntos destraban beneficios que ponen las empresas que acompañan el Tejetón.</p>
+    <div class="cards3">
+      <div class="card"><div class="cond" style="font-size:40px;color:var(--rosa)">1 punto</div><h4>Seguís tu aporte</h4><ul><li>Ves el recorrido de tu cuadrado, tu ovillo o tu aporte.</li><li>Te llega la foto de la entrega de tu manta.</li></ul></div>
+      <div class="card"><div class="cond" style="font-size:40px;color:var(--rosa)">3 puntos</div><h4>Cupón de lana</h4><ul><li>Descuento en lana de la hilandería que acompaña la campaña.</li><li>Café en las tiendas YPF de la ruta.</li><li>Descuento en tu próximo pasaje de tren de larga distancia.</li></ul></div>
+      <div class="card"><div class="cond" style="font-size:40px;color:var(--rosa)">5 puntos</div><h4>Sorteos del Tejetón</h4><ul><li>Viajá un tramo en el Tren de las Mil Mantas y acompañá una entrega con un padrino.</li><li>Corazones tejidos por las tejedoras del grupo.</li><li>Una clase abierta de tejido con el grupo, un martes.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="corazon">
+  <div class="wrap corazon-grid">
+    <div>
+      <div class="heart" id="heart" role="img" aria-label="Corazón formado por 1.000 celdas, una por manta"></div>
+      <div class="leyenda"><span><i style="background:var(--rosa)"></i>Manta entregada, con su foto</span><span><i style="background:var(--linea)"></i>Todavía no llegó</span><span><i style="background:#fff;outline:3px solid var(--cacao)"></i>La manta de tu aporte</span></div>
+    </div>
+    <div>
+      <div class="kicker">El corazón de las 1.000 mantas</div>
+      <h2>Cada manta que llegue va a encender un punto</h2>
+      <p>Cuando un padrino o una madrina entregue una manta, va a mandar la foto y esa foto va a ocupar su lugar en el corazón. Cuando lleguen las 1.000, el corazón va a estar completo.</p>
+      <div class="barra" aria-hidden="true"><div id="barra-c" style="width:0%"></div></div>
+      <p class="nota"><b style="color:var(--cacao)" id="cuenta-c">0 de 1.000</b> mantas entregadas. Las entregas empiezan con el Tren de las Mil Mantas, el 17 de mayo.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn btn-rosa" type="button" id="preview-c">Ver el corazón completo</button><button class="btn btn-linea" type="button" data-ver-mia>¿Dónde va a estar la mía?</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="historia" id="historia">
+  <div class="wrap two">
+    <div class="foto" style="background-image:url(fotos/tejiendo_1.jpg);background-position:center 30%" role="img" aria-label="Una tejedora del grupo tejiendo en el encuentro de los martes"></div>
+    <div>
+      <div class="kicker">Así nació</div>
+      <h2>Empezó con un grupo de amigas y una aguja</h2>
+      <p>Abriguemos a un Niño nació hace unos 20 años, de boca en boca. Una vecina empezó a juntar cuadrados tejidos para armar mantas y de a poco se fueron sumando amigas, conocidas y conocidas de conocidas.</p>
+      <p>Hoy somos entre 15 y 20 tejedoras. Nos juntamos todos los martes de 14 a 17 en un espacio que nos prestan: unimos cuadrados, armamos mantas, tomamos un café y charlamos. Tejemos todo el año, en casa y juntas.</p>
+      <p>Usamos la lana que nos donan, la que compramos con lo que se junta y también lana recuperada. Toda sirve.</p>
+      <div class="hitos">
+        <div class="hito"><div class="n">20 años</div><div class="t">tejiendo mantas</div></div>
+        <div class="hito"><div class="n">Martes</div><div class="t">de 14 a 17, el encuentro del grupo</div></div>
+        <div class="hito"><div class="n">54</div><div class="t">cuadrados de 20 × 20 cm por manta</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="que-hacemos">
+  <div class="wrap">
+    <div class="kicker">Qué hacemos</div>
+    <h2>De un cuadrado a una manta de 1,20 × 1,80 m</h2>
+    <p class="lead">Las mantas van a escuelas albergue del interior, donde los chicos duermen durante la semana y las noches de invierno son frías. Cada escuela pide la cantidad justa: una manta por chico.</p>
+    <div class="pasos">
+      <div class="paso"><h4>Tejer</h4><p>Cada persona teje cuadrados de 20 × 20 cm, con el punto y el color que quiera.</p></div>
+      <div class="paso"><h4>Reunir</h4><p>Los cuadrados y los ovillos llegan a los puntos de acopio y a las estaciones YPF.</p></div>
+      <div class="paso"><h4>Unir</h4><p>Las tejedoras unen 54 cuadrados y cada manta queda lista para viajar.</p></div>
+      <div class="paso"><h4>Entregar</h4><p>Los padrinos llevan las mantas a las escuelas y mandan la foto de la entrega.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tejeton" style="background:#fff">
+  <div class="wrap">
+    <div class="kicker">Gran Tejetón · sábado 15 de mayo · de 10 a 19 h</div>
+    <h2>Un día entero para tejer, coser y festejar</h2>
+    <p class="lead">Te esperamos en el Monumento de los Españoles (Av. del Libertador y Av. Sarmiento, Palermo). La entrada es libre y gratuita: podés venir a coser, a aprender o a acompañar.</p>
+    <div class="pasos">
+      <div class="paso"><h4>Costura en vivo</h4><p>Desde las 10, las tejedoras unen los últimos cuadrados. Traé el tuyo y cosé con ellas.</p></div>
+      <div class="paso"><h4>Talleres</h4><p>De 11 a 17, aprendé a tejer el cuadrado de 20 × 20 cm. No hace falta saber.</p></div>
+      <div class="paso"><h4>Música y kermés</h4><p>De 13 a 18, grupos invitados en el escenario. Toda la jornada, juegos y puestos de comida: lo recaudado va a lana.</p></div>
+      <div class="paso"><h4>El corazón</h4><p>A las 18, las 1.000 mantas forman el corazón del logo. A las 19, cierre y agradecimiento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tren" id="tren">
+  <div class="wrap">
+    <div class="kicker">Tren de las Mil Mantas · con Trenes Argentinos</div>
+    <h2>Del 17 al 28 de mayo, las mantas van a viajar al norte</h2>
+    <p class="lead">Después del Gran Tejetón, las 1.000 mantas van a salir de Retiro en un vagón que pone Trenes Argentinos, con el corazón de la campaña. En cada estación las van a esperar los padrinos de las escuelas.</p>
+    <div class="ruta">
+      <div class="est"><b>Retiro</b><span>17 de mayo · salida</span></div>
+      <div class="est"><b>Rosario</b><span>19 de mayo</span></div>
+      <div class="est"><b>Córdoba</b><span>22 de mayo</span></div>
+      <div class="est"><b>La Banda</b><span>25 de mayo</span></div>
+      <div class="est"><b>Tucumán</b><span>28 de mayo · llegada</span></div>
+    </div>
+    <h3 class="round" style="margin:40px 0 0;font-size:22px">A dónde van a llegar las mantas</h3>
+    <div class="prov" id="prov"></div>
+  </div>
+</section>
+
+<section id="padrinos">
+  <div class="wrap">
+    <div class="kicker">Padrinos y madrinas</div>
+    <h2>Las personas que llevan las mantas hasta cada escuela</h2>
+    <p class="lead">Un padrino es alguien que conoce una escuela albergue: docentes, familias que viajan seguido, personas que trabajan en la zona. Sin ellos, las mantas no llegarían.</p>
+    <div class="cards3">
+      <div class="card"><h4>Qué hace un padrino</h4><ul><li>Nos cuenta cuántos chicos duermen en la escuela.</li><li>Retira las mantas en una estación del tren o en el punto de acopio.</li><li>Las entrega y nos manda la foto.</li></ul></div>
+      <div class="card"><h4>Qué recibe</h4><ul><li>Las mantas justas para su escuela.</li><li>Su credencial con código propio.</li><li>Las fotos de su escuela en el corazón.</li></ul></div>
+      <div class="card"><h4>Cómo sumarte</h4><ul><li>Completá el formulario de «Apadriná una escuela».</li><li>Te llamamos para coordinar.</li><li>Las mantas se piden en marzo para el invierno.</li></ul><a class="btn btn-rosa" href="#sumate" data-tab="apadrina" style="margin-top:16px">Quiero apadrinar</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sumate" id="sumate">
+  <div class="wrap">
+    <div class="kicker">Tu punto cuenta</div>
+    <h2>Elegí cómo seguir sumando</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="abono">Aporte mensual</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="tejer">¡Sumate a tejer!</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="apadrina">Apadriná una escuela</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="foto">Subí tu foto</button>
+    </div>
+
+    <div class="panel on" id="panel-abono" role="tabpanel">
+      <h3 class="round" style="margin:0;color:var(--cacao);font-size:24px">¡Doná ovillos todos los meses!</h3>
+      <p style="margin:6px 0 0">Con tu aporte compramos lana para que más personas puedan tejer durante todo el año. Podés cambiarlo o darlo de baja cuando quieras.</p>
+      <div class="planes" role="group" aria-label="Elegí tu aporte">
+        <button type="button" class="plan" aria-pressed="false" data-plan="1 ovillo"><div class="cond">1 ovillo por mes</div><div class="eq">Rinde 4 cuadrados</div></button>
+        <button type="button" class="plan" aria-pressed="true" data-plan="4 ovillos"><span class="tag">El más elegido</span><div class="cond">4 ovillos por mes</div><div class="eq">Rinde 16 cuadrados</div></button>
+        <button type="button" class="plan" aria-pressed="false" data-plan="14 ovillos"><div class="cond">14 ovillos por mes</div><div class="eq">La lana de una manta entera</div></button>
+      </div>
+      <form data-form="abono">
+        <label>Nombre y apellido<input required name="nombre" autocomplete="name"></label>
+        <label>Correo<input required type="email" name="mail" autocomplete="email"></label>
+        <label class="full">Medio de pago<select name="pago"><option>Tarjeta de débito</option><option>Tarjeta de crédito</option><option>Mercado Pago</option></select></label>
+        <div class="full"><button class="btn btn-rosa" type="submit">Quiero aportar <span data-plan-label>4 ovillos</span> por mes</button></div>
+      </form>
+    </div>
+
+    <div class="panel" id="panel-tejer" role="tabpanel">
+      <h3 class="round" style="margin:0;color:var(--cacao);font-size:24px">¡Sumate a tejer!</h3>
+      <p style="margin:6px 0 16px">Tejé cuadrados de 20 × 20 cm con cualquier lana y cualquier punto. Si no tenés lana, te la damos.</p>
+      <form data-form="tejer">
+        <label>Nombre y apellido<input required name="nombre" autocomplete="name"></label>
+        <label>Localidad<input required name="localidad"></label>
+        <label>¿Cuánto tejés?<select name="nivel"><option>Tejo hace años</option><option>Sé lo básico</option><option>Quiero aprender</option></select></label>
+        <label>¿Cómo querés participar?<select name="modo"><option>Tejo en casa</option><option>Me sumo a un círculo de tejido</option><option>Ayudo a unir mantas</option></select></label>
+        <label class="full">¿Necesitás lana?<select name="lana"><option>No, tengo lana</option><option>Sí, me vendría bien</option></select></label>
+        <div class="full"><button class="btn btn-rosa" type="submit">Me sumo a tejer</button></div>
+      </form>
+    </div>
+
+    <div class="panel" id="panel-apadrina" role="tabpanel">
+      <h3 class="round" style="margin:0;color:var(--cacao);font-size:24px">Apadriná una escuela</h3>
+      <p style="margin:6px 0 16px">Contanos qué escuela conocés y cuántos chicos duermen ahí. Te llamamos para coordinar la entrega.</p>
+      <form data-form="apadrina">
+        <label>Nombre y apellido<input required name="nombre" autocomplete="name"></label>
+        <label>Teléfono<input required type="tel" name="tel" autocomplete="tel"></label>
+        <label>Escuela<input required name="escuela" placeholder="Nombre o número"></label>
+        <label>Provincia<select name="prov"><option>Jujuy</option><option>Salta</option><option>Tucumán</option><option>Santiago del Estero</option><option>Catamarca</option><option>Chaco</option><option>Otra</option></select></label>
+        <label class="full">¿Cuántos chicos duermen en la escuela?<input type="number" min="1" name="chicos"></label>
+        <div class="full"><button class="btn btn-rosa" type="submit">Quiero ser padrino o madrina</button></div>
+      </form>
+    </div>
+
+    <div class="panel" id="panel-foto" role="tabpanel">
+      <h3 class="round" style="margin:0;color:var(--cacao);font-size:24px">Subí tu foto</h3>
+      <p style="margin:6px 0 16px">Mostranos tu tejido terminado o a vos tejiendo. Las fotos aparecen en la galería de la comunidad.</p>
+      <form data-form="foto">
+        <label class="full drop" id="drop">
+          <span><b style="color:var(--cacao)">Elegí una foto</b> o arrastrala acá</span>
+          <input type="file" accept="image/*" id="file" style="display:none">
+          <img id="preview" alt="" hidden>
+        </label>
+        <label>Tu nombre<input required name="nombre" id="f-nombre" autocomplete="given-name"></label>
+        <label>¿Qué muestra?<select id="f-tipo"><option>Tejiendo</option><option>Tejido terminado</option><option>Dejando mi donación</option><option>Llevando mantas</option></select></label>
+        <div class="full"><button class="btn btn-rosa" type="submit">Subir mi foto</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="comunidad">
+  <div class="wrap">
+    <div class="kicker">La comunidad</div>
+    <h2>Fotos de quienes hacen el Tejetón</h2>
+    <p class="lead">Tejedoras, donantes y padrinos. Cada foto es una parte del recorrido.</p>
+    <div class="galeria" id="galeria"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap grid">
+    <div>
+      <div class="script">Cada punto abriga.</div>
+      <p style="margin:8px 0 0">Abriguemos a un Niño teje mantas para chicos de escuelas albergue del interior.</p>
+    </div>
+    <div>
+      <b style="color:var(--marfil)">Contacto</b><br>
+      Instagram: <a href="https://www.instagram.com/abriguemosaunninio/" target="_blank" rel="noopener">@abriguemosaunninio</a><br>
+      Correo: <a href="mailto:abriguemos21@gmail.com">abriguemos21@gmail.com</a>
+    </div>
+    <div>
+      <b style="color:var(--marfil)">Tejetón 2027</b><br>
+      Con YPF · Cargá y abrigá<br>
+      Con Trenes Argentinos · Viajá y abrigá<br>
+      #TuPuntoCuenta #CadaPuntoAbriga
+    </div>
+  </div>
+</footer>
+
+<dialog id="registro">
+  <div class="dlg" style="position:relative">
+    <button class="x" type="button" aria-label="Cerrar" data-close>×</button>
+    <h3>Registrá tu código</h3>
+    <p style="margin:0 0 16px;font-size:15.5px">Está en el talón de tu cuadrado, en la tarjeta de la urna de ovillos, en tu ticket de YPF, en tu pasaje de tren o en el mail que te llegó al anotarte.</p>
+    <form id="form-codigo" style="grid-template-columns:1fr">
+      <label>¿Dónde está tu código?<select id="c-tipo"><option value="CUA">Talón de mi cuadrado</option><option value="OVI">Tarjeta de la urna de ovillos</option><option value="YPF">Ticket de YPF · Cargá y abrigá</option><option value="TRE">Pasaje de tren · Viajá y abrigá</option><option value="TEJ">Mail de «Sumate a tejer»</option><option value="PAD">Credencial de padrino</option></select></label>
+      <label>Código<input id="c-num" required placeholder="Por ejemplo: 4821" inputmode="numeric" maxlength="4" pattern="[0-9]{1,4}"></label>
+      <label>Tu mail para recibir avisos (opcional)<input type="email" id="c-mail" autocomplete="email"></label>
+      <button class="btn btn-rosa" type="submit">Ver mi punto</button>
+    </form>
+  </div>
+</dialog>
+
+<dialog id="lightbox">
+  <div class="lb" style="position:relative">
+    <button class="x" type="button" aria-label="Cerrar" data-close style="color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6);z-index:2">×</button>
+    <div class="im" id="lb-img"></div>
+    <div class="dlg" style="padding:20px 24px"><h3 id="lb-titulo" style="font-size:20px"></h3><p id="lb-texto" style="margin:4px 0 0;font-size:15px"></p></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+// FOTOS: para cambiar una foto, reemplazá el archivo en la carpeta fotos/ con el mismo nombre
+const FOTOS=['fotos/tejiendo_1.jpg','fotos/cuadrado_rosa.jpg','fotos/cuadrados_mesa.jpg','fotos/manta_etiqueta.jpg','fotos/uniendo.jpg','fotos/manta_sonrisa.jpg','fotos/bolsas.jpg','fotos/grupo.jpg','fotos/cuadrados_bolsa.jpg'];
+const HEART={"w": 45, "h": 38, "cells": [[11, 0], [12, 0], [13, 0], [14, 0], [15, 0], [17, 0], [28, 0], [29, 0], [30, 0], [31, 0], [32, 0], [33, 0], [34, 0], [11, 1], [12, 1], [13, 1], [14, 1], [15, 1], [16, 1], [17, 1], [28, 1], [29, 1], [30, 1], [31, 1], [32, 1], [33, 1], [34, 1], [11, 2], [12, 2], [13, 2], [14, 2], [15, 2], [16, 2], [17, 2], [28, 2], [29, 2], [30, 2], [31, 2], [32, 2], [33, 2], [34, 2], [11, 3], [12, 3], [13, 3], [14, 3], [15, 3], [16, 3], [17, 3], [28, 3], [29, 3], [30, 3], [31, 3], [32, 3], [33, 3], [34, 3], [7, 4], [8, 4], [9, 4], [10, 4], [11, 4], [12, 4], [13, 4], [14, 4], [15, 4], [16, 4], [17, 4], [18, 4], [19, 4], [20, 4], [24, 4], [25, 4], [26, 4], [27, 4], [28, 4], [29, 4], [30, 4], [31, 4], [32, 4], [33, 4], [34, 4], [35, 4], [36, 4], [37, 4], [7, 5], [8, 5], [9, 5], [10, 5], [11, 5], [12, 5], [13, 5], [14, 5], [15, 5], [16, 5], [17, 5], [18, 5], [19, 5], [20, 5], [24, 5], [25, 5], [26, 5], [27, 5], [28, 5], [29, 5], [30, 5], [31, 5], [32, 5], [33, 5], [34, 5], [35, 5], [36, 5], [37, 5], [7, 6], [8, 6], [9, 6], [10, 6], [11, 6], [12, 6], [13, 6], [14, 6], [15, 6], [16, 6], [17, 6], [18, 6], [19, 6], [20, 6], [24, 6], [25, 6], [26, 6], [27, 6], [28, 6], [29, 6], [30, 6], [31, 6], [32, 6], [33, 6], [34, 6], [35, 6], [36, 6], [37, 6], [4, 7], [5, 7], [6, 7], [7, 7], [8, 7], [9, 7], [10, 7], [11, 7], [12, 7], [13, 7], [14, 7], [15, 7], [16, 7], [17, 7], [18, 7], [19, 7], [20, 7], [21, 7], [22, 7], [23, 7], [24, 7], [25, 7], [26, 7], [27, 7], [28, 7], [29, 7], [30, 7], [31, 7], [32, 7], [33, 7], [34, 7], [35, 7], [36, 7], [37, 7], [38, 7], [39, 7], [40, 7], [4, 8], [5, 8], [6, 8], [7, 8], [8, 8], [9, 8], [10, 8], [11, 8], [12, 8], [13, 8], [14, 8], [15, 8], [16, 8], [17, 8], [18, 8], [19, 8], [20, 8], [21, 8], [22, 8], [23, 8], [24, 8], [25, 8], [26, 8], [27, 8], [28, 8], [29, 8], [30, 8], [31, 8], [32, 8], [33, 8], [34, 8], [35, 8], [36, 8], [37, 8], [38, 8], [39, 8], [40, 8], [4, 9], [5, 9], [6, 9], [7, 9], [8, 9], [9, 9], [10, 9], [11, 9], [12, 9], [13, 9], [14, 9], [15, 9], [16, 9], [17, 9], [18, 9], [19, 9], [20, 9], [21, 9], [22, 9], [23, 9], [24, 9], [25, 9], [26, 9], [27, 9], [28, 9], [29, 9], [30, 9], [31, 9], [32, 9], [33, 9], [34, 9], [35, 9], [36, 9], [37, 9], [38, 9], [39, 9], [40, 9], [4, 10], [5, 10], [6, 10], [7, 10], [8, 10], [9, 10], [10, 10], [11, 10], [12, 10], [13, 10], [14, 10], [15, 10], [16, 10], [17, 10], [18, 10], [19, 10], [20, 10], [21, 10], [22, 10], [23, 10], [24, 10], [25, 10], [26, 10], [27, 10], [28, 10], [29, 10], [30, 10], [31, 10], [32, 10], [33, 10], [34, 10], [35, 10], [36, 10], [37, 10], [38, 10], [39, 10], [40, 10], [0, 11], [1, 11], [2, 11], [3, 11], [4, 11], [5, 11], [6, 11], [7, 11], [8, 11], [9, 11], [10, 11], [11, 11], [12, 11], [13, 11], [14, 11], [15, 11], [16, 11], [17, 11], [18, 11], [19, 11], [20, 11], [21, 11], [22, 11], [23, 11], [24, 11], [25, 11], [26, 11], [27, 11], [28, 11], [29, 11], [30, 11], [31, 11], [32, 11], [33, 11], [34, 11], [35, 11], [36, 11], [37, 11], [38, 11], [39, 11], [40, 11], [41, 11], [42, 11], [43, 11], [44, 11], [0, 12], [1, 12], [2, 12], [3, 12], [4, 12], [5, 12], [6, 12], [7, 12], [8, 12], [9, 12], [10, 12], [11, 12], [12, 12], [13, 12], [14, 12], [15, 12], [16, 12], [17, 12], [18, 12], [19, 12], [20, 12], [21, 12], [22, 12], [23, 12], [24, 12], [25, 12], [26, 12], [27, 12], [28, 12], [29, 12], [30, 12], [31, 12], [32, 12], [33, 12], [34, 12], [35, 12], [36, 12], [37, 12], [38, 12], [39, 12], [40, 12], [41, 12], [42, 12], [43, 12], [44, 12], [0, 13], [1, 13], [2, 13], [3, 13], [4, 13], [5, 13], [6, 13], [7, 13], [8, 13], [9, 13], [10, 13], [11, 13], [12, 13], [13, 13], [14, 13], [15, 13], [16, 13], [17, 13], [18, 13], [19, 13], [20, 13], [21, 13], [22, 13], [23, 13], [24, 13], [25, 13], [26, 13], [27, 13], [28, 13], [29, 13], [30, 13], [31, 13], [32, 13], [33, 13], [34, 13], [35, 13], [36, 13], [37, 13], [38, 13], [39, 13], [40, 13], [41, 13], [42, 13], [43, 13], [44, 13], [0, 14], [1, 14], [2, 14], [3, 14], [4, 14], [5, 14], [6, 14], [7, 14], [8, 14], [9, 14], [10, 14], [11, 14], [12, 14], [13, 14], [14, 14], [15, 14], [16, 14], [17, 14], [18, 14], [19, 14], [20, 14], [21, 14], [22, 14], [23, 14], [24, 14], [25, 14], [26, 14], [27, 14], [28, 14], [29, 14], [30, 14], [31, 14], [32, 14], [33, 14], [34, 14], [35, 14], [36, 14], [37, 14], [38, 14], [39, 14], [40, 14], [41, 14], [42, 14], [43, 14], [44, 14], [0, 15], [1, 15], [2, 15], [3, 15], [4, 15], [5, 15], [6, 15], [7, 15], [8, 15], [9, 15], [10, 15], [11, 15], [12, 15], [13, 15], [14, 15], [15, 15], [16, 15], [17, 15], [18, 15], [19, 15], [20, 15], [21, 15], [22, 15], [23, 15], [24, 15], [25, 15], [26, 15], [27, 15], [28, 15], [29, 15], [30, 15], [31, 15], [32, 15], [33, 15], [34, 15], [35, 15], [36, 15], [37, 15], [38, 15], [39, 15], [40, 15], [41, 15], [42, 15], [43, 15], [44, 15], [0, 16], [1, 16], [2, 16], [3, 16], [4, 16], [5, 16], [6, 16], [7, 16], [8, 16], [9, 16], [10, 16], [11, 16], [12, 16], [13, 16], [14, 16], [15, 16], [16, 16], [17, 16], [18, 16], [19, 16], [20, 16], [21, 16], [22, 16], [23, 16], [24, 16], [25, 16], [26, 16], [27, 16], [28, 16], [29, 16], [30, 16], [31, 16], [32, 16], [33, 16], [34, 16], [35, 16], [36, 16], [37, 16], [38, 16], [39, 16], [40, 16], [41, 16], [42, 16], [43, 16], [44, 16], [0, 17], [1, 17], [2, 17], [3, 17], [4, 17], [5, 17], [6, 17], [7, 17], [8, 17], [9, 17], [10, 17], [11, 17], [12, 17], [13, 17], [14, 17], [15, 17], [16, 17], [17, 17], [18, 17], [19, 17], [20, 17], [21, 17], [22, 17], [23, 17], [24, 17], [25, 17], [26, 17], [27, 17], [28, 17], [29, 17], [30, 17], [31, 17], [32, 17], [33, 17], [34, 17], [35, 17], [36, 17], [37, 17], [38, 17], [39, 17], [40, 17], [41, 17], [42, 17], [43, 17], [44, 17], [4, 18], [5, 18], [6, 18], [7, 18], [8, 18], [9, 18], [10, 18], [11, 18], [12, 18], [13, 18], [14, 18], [15, 18], [16, 18], [17, 18], [18, 18], [19, 18], [20, 18], [21, 18], [22, 18], [23, 18], [24, 18], [25, 18], [26, 18], [27, 18], [28, 18], [29, 18], [30, 18], [31, 18], [32, 18], [33, 18], [34, 18], [35, 18], [36, 18], [37, 18], [38, 18], [39, 18], [40, 18], [4, 19], [5, 19], [6, 19], [7, 19], [8, 19], [9, 19], [10, 19], [11, 19], [12, 19], [13, 19], [14, 19], [15, 19], [16, 19], [17, 19], [18, 19], [19, 19], [20, 19], [21, 19], [22, 19], [23, 19], [24, 19], [25, 19], [26, 19], [27, 19], [28, 19], [29, 19], [30, 19], [31, 19], [32, 19], [33, 19], [34, 19], [35, 19], [36, 19], [37, 19], [38, 19], [39, 19], [40, 19], [4, 20], [5, 20], [6, 20], [7, 20], [8, 20], [9, 20], [10, 20], [11, 20], [12, 20], [13, 20], [14, 20], [15, 20], [16, 20], [17, 20], [18, 20], [19, 20], [20, 20], [21, 20], [22, 20], [23, 20], [24, 20], [25, 20], [26, 20], [27, 20], [28, 20], [29, 20], [30, 20], [31, 20], [32, 20], [33, 20], [34, 20], [35, 20], [36, 20], [37, 20], [38, 20], [39, 20], [40, 20], [7, 21], [8, 21], [9, 21], [10, 21], [11, 21], [12, 21], [13, 21], [14, 21], [15, 21], [16, 21], [17, 21], [18, 21], [19, 21], [20, 21], [21, 21], [22, 21], [23, 21], [24, 21], [25, 21], [26, 21], [27, 21], [28, 21], [29, 21], [30, 21], [31, 21], [32, 21], [33, 21], [34, 21], [35, 21], [36, 21], [37, 21], [7, 22], [8, 22], [9, 22], [10, 22], [11, 22], [12, 22], [13, 22], [14, 22], [15, 22], [16, 22], [17, 22], [18, 22], [19, 22], [20, 22], [21, 22], [22, 22], [23, 22], [24, 22], [25, 22], [26, 22], [27, 22], [28, 22], [29, 22], [30, 22], [31, 22], [32, 22], [33, 22], [34, 22], [35, 22], [36, 22], [37, 22], [7, 23], [8, 23], [9, 23], [10, 23], [11, 23], [12, 23], [13, 23], [14, 23], [15, 23], [16, 23], [17, 23], [18, 23], [19, 23], [20, 23], [21, 23], [22, 23], [23, 23], [24, 23], [25, 23], [26, 23], [27, 23], [28, 23], [29, 23], [30, 23], [31, 23], [32, 23], [33, 23], [34, 23], [35, 23], [36, 23], [37, 23], [11, 24], [12, 24], [13, 24], [14, 24], [15, 24], [16, 24], [17, 24], [18, 24], [19, 24], [20, 24], [21, 24], [22, 24], [23, 24], [24, 24], [25, 24], [26, 24], [27, 24], [28, 24], [29, 24], [30, 24], [31, 24], [32, 24], [33, 24], [34, 24], [11, 25], [12, 25], [13, 25], [14, 25], [15, 25], [16, 25], [17, 25], [18, 25], [19, 25], [20, 25], [21, 25], [22, 25], [23, 25], [24, 25], [25, 25], [26, 25], [27, 25], [28, 25], [29, 25], [30, 25], [31, 25], [32, 25], [33, 25], [34, 25], [11, 26], [12, 26], [13, 26], [14, 26], [15, 26], [16, 26], [17, 26], [18, 26], [19, 26], [20, 26], [21, 26], [22, 26], [23, 26], [24, 26], [25, 26], [26, 26], [27, 26], [28, 26], [29, 26], [30, 26], [31, 26], [32, 26], [33, 26], [11, 27], [12, 27], [13, 27], [14, 27], [15, 27], [16, 27], [17, 27], [18, 27], [19, 27], [20, 27], [21, 27], [22, 27], [23, 27], [24, 27], [25, 27], [26, 27], [27, 27], [28, 27], [29, 27], [30, 27], [31, 27], [32, 27], [33, 27], [34, 27], [14, 28], [15, 28], [16, 28], [17, 28], [18, 28], [19, 28], [20, 28], [21, 28], [22, 28], [23, 28], [24, 28], [25, 28], [26, 28], [27, 28], [28, 28], [29, 28], [30, 28], [14, 29], [15, 29], [16, 29], [17, 29], [18, 29], [19, 29], [20, 29], [21, 29], [22, 29], [23, 29], [24, 29], [25, 29], [26, 29], [27, 29], [28, 29], [29, 29], [30, 29], [14, 30], [15, 30], [16, 30], [17, 30], [18, 30], [19, 30], [20, 30], [21, 30], [22, 30], [23, 30], [24, 30], [25, 30], [26, 30], [27, 30], [28, 30], [29, 30], [30, 30], [18, 31], [19, 31], [20, 31], [21, 31], [22, 31], [23, 31], [24, 31], [25, 31], [26, 31], [27, 31], [18, 32], [19, 32], [20, 32], [21, 32], [22, 32], [23, 32], [24, 32], [25, 32], [26, 32], [27, 32], [19, 33], [20, 33], [21, 33], [22, 33], [23, 33], [24, 33], [25, 33], [26, 33], [27, 33], [18, 34], [19, 34], [20, 34], [21, 34], [22, 34], [23, 34], [24, 34], [25, 34], [26, 34], [27, 34], [21, 35], [22, 35], [23, 35], [21, 36], [22, 36], [23, 36], [21, 37], [22, 37], [23, 37]]};
+const PROVINCIAS=[['Jujuy',220,198],['Salta',210,183],['Tucumán',160,148],['Santiago del Estero',150,127],['Catamarca',130,104],['Chaco',130,86]];
+const ESCUELAS={Jujuy:['Escuela Albergue N.º 12, Yavi','Escuela Albergue N.º 31, Susques'],Salta:['Escuela Albergue N.º 4523, Iruya','Escuela Albergue N.º 4601, Santa Victoria Oeste'],'Tucumán':['Escuela Albergue N.º 248, Tafí del Valle','Escuela Albergue N.º 312, Amaicha'],'Santiago del Estero':['Escuela Albergue N.º 615, Figueroa','Escuela Albergue N.º 1104, Copo'],Catamarca:['Escuela Albergue N.º 337, Antofagasta de la Sierra','Escuela Albergue N.º 412, El Alto'],Chaco:['Escuela Albergue N.º 914, Pampa del Indio','Escuela Albergue N.º 1022, Nueva Pompeya']};
+const PADRINOS=['Graciela','Marta','Daniel','Silvia','Norma','Ricardo','Patricia','Hugo','Liliana','Carlos','Mónica','Andrea'];
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),3200)}
+function crop(i){const SET=[0,1,2,3,5,8,2,8,1,5];const f=FOTOS[SET[i%SET.length]];const z=2+Math.floor(rnd()*3);return{img:`url(${f})`,bs:`${z*100}% auto`,bp:`${Math.floor(rnd()*100)}% ${Math.floor(rnd()*100)}%`,f,z}}
+
+// corazón
+const heart=$('#heart'),W=HEART.w,H=HEART.h,cells=[];
+const provList=PROVINCIAS.flatMap(([p,t])=>Array(t).fill(p));
+const orden=[...Array(1000).keys()].sort(()=>rnd()-.5);
+const entregada=new Set();
+const MIA=412;
+HEART.cells.forEach(([x,y],i)=>{
+  const d=document.createElement('button');d.type='button';d.className='c';
+  d.style.left=(x/W*100)+'%';d.style.top=(y/H*100)+'%';d.style.width=(100/W*.86)+'%';d.style.height=(100/H*.86)+'%';
+  const n=i+1,prov=provList[(i*7)%1000],esc=ESCUELAS[prov][i%2],c=crop(i);
+  const info={n,prov,esc,padrino:PADRINOS[i%PADRINOS.length],dia:17+((i*3)%12),c,ok:entregada.has(i)};
+  if(info.ok){d.classList.add('on');d.style.setProperty('--img',c.img);d.style.setProperty('--bs',c.bs);d.style.setProperty('--bp',c.bp)}
+  
+  d.setAttribute('aria-label',`Manta ${n}`);
+  d.addEventListener('click',()=>abrir(info));
+  heart.appendChild(d);cells.push({d,info});
+});
+function abrir(info){
+  const n=String(info.n).padStart(4,'0');
+  $('#lb-img').style.cssText=info.ok?`background-image:${info.c.img};background-size:${info.c.z*60}% auto;background-position:${info.c.bp}`:'background:var(--crema)';
+  $('#lb-titulo').textContent=`Manta N.º ${n}`+(info.n-1===MIA&&cells[MIA].d.classList.contains('mine')?' · la manta de tu aporte':'');
+  $('#lb-texto').textContent=info.ok?`${info.esc} · ${info.prov} · la lleva ${info.padrino}.`:`Va a viajar hacia ${info.prov}. Cuando llegue, su foto se va a sumar al corazón.`;
+  $('#lightbox').showModal();
+}
+$$('[data-ver-mia]').forEach(b=>b.addEventListener('click',()=>{cells.forEach(c=>c.d.classList.remove('mine'));cells[MIA].d.classList.add('mine');toast('Después del Gran Tejetón vas a ver acá en qué manta quedó tu aporte.')}));
+
+// botón «Ver el corazón completo»
+$('#preview-c').addEventListener('click',()=>{const b=$('#preview-c');b.disabled=true;let k=0;
+  const ord=[...cells.keys()].sort(()=>rnd()-.5);
+  const tick=()=>{for(let s=0;s<25&&k<ord.length;s++,k++){const c=cells[ord[k]];c.info.ok=true;c.d.classList.add('on');c.d.style.setProperty('--img',c.info.c.img);c.d.style.setProperty('--bs',c.info.c.bs);c.d.style.setProperty('--bp',c.info.c.bp)}
+    $('#barra-c').style.width=(k/10)+'%';$('#cuenta-c').textContent=`El corazón completo: ${k.toLocaleString('es-AR')} mantas`;
+    if(k<ord.length)requestAnimationFrame(tick);else{b.textContent='El corazón completo';}};tick()});
+// provincias
+$('#prov').innerHTML=PROVINCIAS.map(([p,t])=>`<div class="pv"><b>${p}</b><div class="barra"><div style="width:${t/220*100}%;background:var(--rosa-suave)"></div></div><small>${t} mantas · ${ESCUELAS[p].length*0+Math.round(t/25)} escuelas</small></div>`).join('');
+
+// galería
+const ILU={
+tren:`<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='%23F6E9D8'/><rect x='10' y='150' width='180' height='5' rx='2' fill='%23806364'/><rect x='12' y='80' width='120' height='64' rx='12' fill='%23D45773'/><path d='M60 98c-6-8-20-3-16 7l16 15 16-15c4-10-10-15-16-7z' fill='%23fff'/><rect x='138' y='70' width='52' height='74' rx='12' fill='%23673831'/><rect x='150' y='82' width='26' height='20' rx='4' fill='%23FFF8EE'/><circle cx='36' cy='152' r='10' fill='%232f2a30'/><circle cx='104' cy='152' r='10' fill='%232f2a30'/><circle cx='162' cy='152' r='10' fill='%232f2a30'/></svg>`,
+mantas:`<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='%23FFF8EE'/><rect x='40' y='128' width='120' height='26' rx='8' fill='%2391A48F'/><rect x='34' y='100' width='132' height='26' rx='8' fill='%23E8A4AB'/><rect x='40' y='72' width='120' height='26' rx='8' fill='%238EA8BD'/><rect x='46' y='44' width='108' height='26' rx='8' fill='%23D45773'/><g stroke='%23fff' stroke-opacity='.5' stroke-width='3'><path d='M70 44v26M100 44v26M130 44v26M70 72v26M100 72v26M130 72v26M70 100v26M100 100v26M130 100v26M70 128v26M100 128v26M130 128v26'/></g></svg>`,
+ticket:`<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><rect width='200' height='200' fill='%23E8A4AB'/><rect x='46' y='26' width='108' height='150' rx='10' fill='%23fff'/><rect x='62' y='44' width='76' height='8' rx='4' fill='%23673831'/><rect x='62' y='60' width='56' height='6' rx='3' fill='%23806364'/><rect x='62' y='72' width='64' height='6' rx='3' fill='%23806364'/><rect x='72' y='96' width='56' height='56' rx='6' fill='%23673831'/><rect x='80' y='104' width='16' height='16' fill='%23fff'/><rect x='104' y='104' width='16' height='16' fill='%23fff'/><rect x='80' y='128' width='16' height='16' fill='%23fff'/><rect x='108' y='132' width='8' height='8' fill='%23fff'/></svg>`};
+const GAL=[['Tejiendo','Los martes en el encuentro del grupo',0],['Tejiendo','Un cuadrado rosa, punto a punto',1],['Tejido terminado','Granny squares listos para unir',2],['Uniendo','Así se cosen los cuadrados',4],['Tejido terminado','Cada manta lleva su etiqueta',3],['Tejido terminado','Una manta recién terminada',5],['Cargá y abrigá','Mi ticket de YPF ya es lana','ticket'],['Llevando mantas','Mantas listas para viajar',6],['Llevando mantas','Uno de los padrinos retira las mantas',7],['Tejido terminado','Cuadrados de todos los colores',8],['Tren de las Mil Mantas','Trenes Argentinos lleva las mantas al norte','tren']];
+const gal=$('#galeria');
+function addGal(tipo,txt,style,first){const e=document.createElement('div');e.className='gal';e.innerHTML=`<div class="im" style="${style}"></div><div class="tx"><b>${tipo}</b>${txt}</div>`;first?gal.prepend(e):gal.appendChild(e)}
+GAL.forEach(([tt,x,k])=>{if(typeof k==='string'){addGal(tt,x,`background-image:url(data:image/svg+xml;base64,${btoa(ILU[k].replace(/%23/g,'#'))})`);return}addGal(tt,x,`background-image:url(${FOTOS[k]});background-position:center 35%`)});
+
+// contadores
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;const el=en.target,to=+el.dataset.count,t0=performance.now();io.unobserve(el);
+  const step=t=>{const p=Math.min(1,(t-t0)/1400),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('es-AR');if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.4});
+$$('[data-count]').forEach(e=>io.observe(e));
+
+// pestañas
+function tab(id){$$('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.tab===id));$$('.panel').forEach(p=>p.classList.toggle('on',p.id==='panel-'+id))}
+$$('.tab').forEach(t=>t.addEventListener('click',()=>tab(t.dataset.tab)));
+$$('a[data-tab]').forEach(a=>a.addEventListener('click',()=>tab(a.dataset.tab)));
+$$('.plan').forEach(p=>p.addEventListener('click',()=>{$$('.plan').forEach(q=>q.setAttribute('aria-pressed',q===p));$('[data-plan-label]').textContent=p.dataset.plan}));
+
+// formularios
+const msgs={abono:'¡Gracias! Tu aporte mensual quedó registrado.',tejer:'¡Bienvenida! Te escribimos con tu punto de acopio más cercano.',apadrina:'¡Gracias! Te llamamos para coordinar la entrega.'};
+$$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const k=f.dataset.form;
+  if(k==='foto'){const img=$('#preview');if(img.hidden){toast('Elegí una foto primero');return}
+    addGal($('#f-tipo').value,$('#f-nombre').value,`background-image:url(${img.src})`,true);toast('¡Tu foto ya está en la galería!');document.getElementById('comunidad').scrollIntoView();f.reset();img.hidden=true;return}
+  toast(msgs[k]);f.reset()}));
+const file=$('#file'),drop=$('#drop');
+function leer(fl){if(!fl||!fl.type.startsWith('image/'))return;const r=new FileReader();r.onload=()=>{const p=$('#preview');p.src=r.result;p.hidden=false};r.readAsDataURL(fl)}
+file.addEventListener('change',()=>leer(file.files[0]));
+drop.addEventListener('dragover',e=>{e.preventDefault()});drop.addEventListener('drop',e=>{e.preventDefault();leer(e.dataTransfer.files[0])});
+
+// registro de código
+const reg=$('#registro');
+$$('[data-open-registro]').forEach(b=>b.addEventListener('click',()=>reg.showModal()));
+$$('dialog [data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
+$$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+const TIPOS={
+ CUA:{origen:'Talón de tu cuadrado',titulo:'Tu cuadrado',pasos:[['Entregaste tu cuadrado de 20 × 20 cm','Punto de acopio · lleva tu etiqueta',1],['Espera junto a otros 53 cuadrados','Hasta el 14 de mayo',1],['Se cose en una manta','Sábado 15 de mayo · Gran Tejetón · te avisamos cuál',0],['Viaja en el Tren de las Mil Mantas','Desde el 17 de mayo · de Retiro al norte',0],['Llega a una escuela albergue','Antes de junio · con la foto de la entrega',0]]},
+ OVI:{origen:'Tarjeta de la urna de ovillos',titulo:'Tu ovillo',pasos:[['Donaste tu ovillo','Urna de ovillos',1],['Una tejedora lo convierte en 4 cuadrados','Hasta el 14 de mayo',1],['Esos cuadrados se cosen en una manta','Sábado 15 de mayo · Gran Tejetón, Monumento de los Españoles',0],['Viaja en el Tren de las Mil Mantas','Desde el 17 de mayo · de Retiro al norte',0],['Llega a una escuela albergue','Antes de junio · con la foto de la entrega',0]]},
+ TRE:{origen:'Pasaje de tren · Viajá y abrigá',titulo:'Tu viaje abriga',pasos:[['Viajaste en tren de larga distancia','Trenes Argentinos dona el 0,5 % de tu pasaje',1],['Ese aporte compra lana para las tejedoras','Hasta el 14 de mayo',1],['La lana se convierte en cuadrados y mantas','Sábado 15 de mayo · Gran Tejetón, Monumento de los Españoles',0],['Las mantas viajan en el Tren de las Mil Mantas','Desde el 17 de mayo · de Retiro al norte',0],['Llegan a 40 escuelas albergue','Antes de junio',0]]},
+ YPF:{origen:'Ticket YPF · Cargá y abrigá',titulo:'Tu aporte para lana',pasos:[['Cargaste en YPF','YPF dona el 1 % de tu carga para lana',1],['Tu aporte compra lana para las tejedoras','Hasta el 14 de mayo',1],['Esa lana se convierte en cuadrados y mantas','Sábado 15 de mayo · Gran Tejetón, Monumento de los Españoles',0],['Las mantas viajan en el Tren de las Mil Mantas','Desde el 17 de mayo · de Retiro al norte',0],['Llegan a 40 escuelas albergue','Antes de junio',0]]},
+ TEJ:{origen:'Sumate a tejer',titulo:'Tus cuadrados',pasos:[['Te anotaste para tejer','Te asignamos un punto de acopio',1],['Tejés tus cuadrados','Hasta el 14 de mayo',1],['Se cosen en mantas','Sábado 15 de mayo · Gran Tejetón, Monumento de los Españoles',0],['Viajan en el Tren de las Mil Mantas','Desde el 17 de mayo · de Retiro al norte',0],['Llegan a una escuela albergue','Antes de junio',0]]},
+ PAD:{origen:'Credencial de padrino',titulo:'Tu escuela',pasos:[['Anotaste tu escuela','Una manta por chico',1],['Preparamos tus mantas','Sábado 15 de mayo · Gran Tejetón, Monumento de los Españoles',0],['Las retirás en la estación del tren','Entre el 17 y el 28 de mayo',0],['Las entregás y mandás la foto','Antes de junio',0],['Tu foto enciende un punto del corazón','Corazón de las 1.000 mantas',0]]}};
+$('#form-codigo').addEventListener('submit',e=>{e.preventDefault();
+  const tipo=$('#c-tipo').value,num=String(parseInt($('#c-num').value,10)).padStart(4,'0'),T=TIPOS[tipo];
+  $('#p-origen').textContent=T.origen;$('#p-titulo').textContent=T.titulo;$('#p-codigo').textContent=`${tipo}-${num}`;$('#p-estado').textContent='En camino';
+  $('#p-linea').innerHTML=T.pasos.map(([b,s,ok])=>`<li${ok?'':' class="pend"'}><b>${b}</b><small>${s}</small></li>`).join('');
+  window.PUNTOS=(window.PUNTOS||1)+1;const P=window.PUNTOS;$('#p-puntos').textContent=P;$('#p-falta').textContent=P>=5?'Ya participás de los sorteos del Tejetón':(P>=3?`Ya tenés tu cupón de lana · te faltan ${5-P} para los sorteos`:`Te faltan ${3-P} para el cupón de lana`);
+  const m=$('#c-mail').value;reg.close();document.getElementById('inicio').scrollIntoView();toast(m?'¡Listo! Te vamos a avisar a '+m:'¡Listo! Ya podés seguir tu aporte.');e.target.reset();
+});
+
+</script>
+</body>
+</html>
